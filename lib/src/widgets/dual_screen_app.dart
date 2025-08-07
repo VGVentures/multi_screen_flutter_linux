@@ -12,7 +12,7 @@ class DualScreenApp extends StatelessWidget {
   final ThemeMode? themeMode;
   final Locale? locale;
   final Iterable<LocalizationsDelegate<dynamic>>? localizationDelegates;
-  final Iterable<Locale>? supportedLocales;
+  final Iterable<Locale> supportedLocales;
 
   /*
    *  Dual-screen stuff
@@ -44,7 +44,7 @@ class DualScreenApp extends StatelessWidget {
     this.themeMode,
     this.locale,
     this.localizationDelegates,
-    this.supportedLocales,
+    this.supportedLocales = const <Locale>[Locale('en', 'US')],
     // Dual-screen stuff
     this.orientation = Axis.vertical,
     this.crossAxisAlignment = CrossAxisAlignment.center,
@@ -62,7 +62,7 @@ class DualScreenApp extends StatelessWidget {
       themeMode: themeMode,
       locale: locale,
       localizationsDelegates: localizationDelegates,
-      supportedLocales: supportedLocales ?? [],
+      supportedLocales: supportedLocales,
       // builder
       builder: (context, _) => SizedBox(
         width: MediaQuery.of(context).size.width,
